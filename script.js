@@ -15,6 +15,7 @@ getRandomUserData();
 // event
 addUserBtn.addEventListener("click", getRandomUserData);
 doubleBtn.addEventListener("click", doubleMoney);
+sortBtn.addEventListener("click", sortByRichiest);
 
 // event logic
 async function getRandomUserData() {
@@ -56,5 +57,10 @@ function doubleMoney() {
   data = data.map((user) => {
     return { ...user, money: user.money * 2 };
   });
+  updateDom();
+}
+
+function sortByRichiest() {
+  data.sort((a, b) => b.money - a.money);
   updateDom();
 }
